@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FPT Tây Nguyên</title>
+<meta name="description" content="FPT Tây Nguyên - Internet cáp quang & dịch vụ. Thanh toán nhanh bằng mã VietQR.">
+<style>
+  :root{
+    --fpt-orange:#f37021;
+    --fpt-blue:#0a3d91;
+    --fpt-green:#00a651;
+    --bg:#f5f7fb;
+    --ink:#1a2230;
+    --muted:#5b6472;
+    --card:#ffffff;
+    --line:#e6eaf1;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.6;
+  }
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+
+  header{
+    background:linear-gradient(135deg,var(--fpt-blue),#1256c4);
+    color:#fff;padding:14px 0;position:sticky;top:0;z-index:10;
+    box-shadow:0 2px 14px rgba(10,61,145,.25);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px}
+  .logo{
+    width:38px;height:38px;border-radius:9px;
+    background:var(--fpt-orange);display:grid;place-items:center;
+    font-weight:900;color:#fff;font-size:16px;letter-spacing:-1px;
+  }
+  .brand small{display:block;font-weight:500;font-size:11px;opacity:.85;letter-spacing:2px}
+  .nav .cta{
+    background:var(--fpt-orange);padding:9px 18px;border-radius:30px;
+    font-weight:700;font-size:14px;
+  }
+
+  .hero{padding:56px 0 40px;text-align:center}
+  .hero h1{font-size:38px;line-height:1.2;font-weight:900;color:var(--fpt-blue)}
+  .hero h1 span{color:var(--fpt-orange)}
+  .hero p{max-width:600px;margin:16px auto 0;color:var(--muted);font-size:17px}
+  .badges{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:26px}
+  .badge{
+    background:#fff;border:1px solid var(--line);border-radius:12px;
+    padding:14px 18px;min-width:150px;text-align:left;
+    box-shadow:0 4px 14px rgba(20,40,80,.05);
+  }
+  .badge b{display:block;font-size:22px;color:var(--fpt-blue)}
+  .badge small{color:var(--muted)}
+
+  .pay{padding:20px 0 60px}
+  .pay-card{
+    background:var(--card);border-radius:22px;overflow:hidden;
+    box-shadow:0 18px 50px rgba(20,40,80,.12);
+    display:grid;grid-template-columns:1.1fr 1fr;
+  }
+  .pay-info{padding:38px 34px;background:linear-gradient(160deg,#fff, #fff7f1)}
+  .pay-info .kicker{
+    display:inline-block;background:#fff0e6;color:var(--fpt-orange);
+    font-weight:800;font-size:12px;letter-spacing:1px;
+    padding:6px 12px;border-radius:20px;text-transform:uppercase;
+  }
+  .pay-info h2{font-size:26px;margin:14px 0 6px;color:var(--ink)}
+  .amount{font-size:40px;font-weight:900;color:var(--fpt-green);margin:6px 0}
+  .rows{margin-top:18px;border-top:1px dashed var(--line);padding-top:16px}
+  .row{display:flex;justify-content:space-between;gap:16px;padding:7px 0;font-size:15px}
+  .row .k{color:var(--muted)}
+  .row .v{font-weight:700;text-align:right}
+  .copy{
+    cursor:pointer;border:none;background:#eef3ff;color:var(--fpt-blue);
+    font-weight:700;font-size:12px;border-radius:8px;padding:3px 9px;margin-left:8px;
+  }
+  .copy:active{transform:scale(.96)}
+
+  .qr-side{
+    padding:38px 30px;display:flex;flex-direction:column;align-items:center;
+    justify-content:center;text-align:center;background:#fbfcff;
+    border-left:1px solid var(--line);
+  }
+  .qr-box{
+    background:#fff;border:1px solid var(--line);border-radius:18px;
+    padding:16px;box-shadow:0 8px 24px rgba(20,40,80,.08);
+  }
+  .qr-box img{width:250px;height:250px;display:block;border-radius:8px}
+  .qr-side .hint{margin-top:14px;color:var(--muted);font-size:14px;max-width:250px}
+  .qr-logos{display:flex;gap:10px;align-items:center;justify-content:center;margin-top:14px;flex-wrap:wrap}
+  .qr-logos span{
+    font-size:11px;font-weight:700;color:#8892a4;border:1px solid var(--line);
+    border-radius:6px;padding:4px 8px;background:#fff;
+  }
+  .toast{
+    position:fixed;left:50%;bottom:30px;transform:translateX(-50%) translateY(20px);
+    background:var(--ink);color:#fff;padding:11px 20px;border-radius:30px;
+    font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:.25s;
+    z-index:50;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  .services{padding:20px 0 60px}
+  .services h3{text-align:center;font-size:26px;color:var(--fpt-blue);margin-bottom:8px}
+  .services .sub{text-align:center;color:var(--muted);margin-bottom:30px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .svc{
+    background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;
+    box-shadow:0 6px 18px rgba(20,40,80,.05);
+  }
+  .svc .ic{font-size:28px}
+  .svc h4{margin:12px 0 6px;color:var(--ink)}
+  .svc p{color:var(--muted);font-size:14px}
+
+  footer{background:var(--fpt-blue);color:#dbe6ff;padding:34px 0;text-align:center;font-size:14px}
+  footer b{color:#fff}
+  footer .row2{margin-top:8px;opacity:.8}
+
+  @media(max-width:760px){
+    .pay-card{grid-template-columns:1fr}
+    .qr-side{border-left:none;border-top:1px solid var(--line)}
+    .hero h1{font-size:30px}
+    .grid{grid-template-columns:1fr}
+    .nav .cta{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="brand">
+      <div class="logo">FPT</div>
+      <div>FPT Tây Nguyên<small>INTERNET &amp; DỊCH VỤ</small></div>
+    </div>
+    <a href="#thanhtoan" class="cta">Thanh toán</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>Internet cáp quang <span>FPT</span> tại Tây Nguyên</h1>
+    <p>Kết nối tốc độ cao, ổn định cho gia đình và doanh nghiệp. Thanh toán nhanh chỉ với một lần quét mã VietQR.</p>
+    <div class="badges">
+      <div class="badge"><b>99.9%</b><small>Ổn định đường truyền</small></div>
+      <div class="badge"><b>24/7</b><small>Hỗ trợ kỹ thuật</small></div>
+      <div class="badge"><b>Miễn phí</b><small>Lắp đặt tận nơi</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="pay" id="thanhtoan">
+  <div class="wrap">
+    <div class="pay-card">
+      <div class="pay-info">
+        <span class="kicker">Thanh toán VietQR</span>
+        <h2>Quét mã để thanh toán</h2>
+        <div class="amount">68.000 ₫</div>
+        <p style="color:var(--muted);font-size:14px">Nội dung: <b>tặng 1 cốc bia</b> 🍺</p>
+
+        <div class="rows">
+          <div class="row">
+            <span class="k">Ngân hàng</span>
+            <span class="v">Agribank</span>
+          </div>
+          <div class="row">
+            <span class="k">Chủ tài khoản</span>
+            <span class="v">NGUYEN VAN TUAN</span>
+          </div>
+          <div class="row">
+            <span class="k">Số tài khoản</span>
+            <span class="v">5012236012568
+              <button class="copy" onclick="copyText('5012236012568')">Sao chép</button>
+            </span>
+          </div>
+          <div class="row">
+            <span class="k">Số tiền</span>
+            <span class="v">68.000 ₫
+              <button class="copy" onclick="copyText('68000')">Sao chép</button>
+            </span>
+          </div>
+          <div class="row">
+            <span class="k">Nội dung</span>
+            <span class="v">tang 1 coc bia
+              <button class="copy" onclick="copyText('tang 1 coc bia')">Sao chép</button>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="qr-side">
+        <div class="qr-box">
+          <img
+            src="https://img.vietqr.io/image/970405-5012236012568-compact2.png?amount=68000&addInfo=tang%201%20coc%20bia&accountName=NGUYEN%20VAN%20TUAN"
+            alt="Mã VietQR thanh toán 68.000đ - Agribank NGUYEN VAN TUAN"
+            loading="lazy">
+        </div>
+        <div class="hint">Mở app ngân hàng bất kỳ → quét mã QR → số tiền và nội dung tự điền sẵn.</div>
+        <div class="qr-logos">
+          <span>VietQR</span><span>napas 24/7</span><span>Agribank</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <div class="wrap">
+    <h3>Dịch vụ của chúng tôi</h3>
+    <div class="sub">Giải pháp kết nối toàn diện cho khu vực Tây Nguyên</div>
+    <div class="grid">
+      <div class="svc">
+        <div class="ic">🌐</div>
+        <h4>Internet cáp quang</h4>
+        <p>Các gói cước tốc độ từ 100Mbps đến 1Gbps, phù hợp mọi nhu cầu sử dụng.</p>
+      </div>
+      <div class="svc">
+        <div class="ic">📺</div>
+        <h4>Truyền hình FPT</h4>
+        <p>Hàng trăm kênh HD, kho phim và giải trí phong phú kèm đầu thu 4K.</p>
+      </div>
+      <div class="svc">
+        <div class="ic">🛡️</div>
+        <h4>Camera &amp; an ninh</h4>
+        <p>Lắp đặt và giám sát camera cloud, bảo vệ nhà và cửa hàng 24/7.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <b>FPT Tây Nguyên</b> — Internet &amp; Dịch vụ số<br>
+    <div class="row2">Hotline hỗ trợ · fpttaynguyen.com · © 2026</div>
+  </div>
+</footer>
+
+<div class="toast" id="toast">Đã sao chép!</div>
+
+<script>
+  function copyText(t){
+    navigator.clipboard.writeText(t).then(function(){
+      var el=document.getElementById('toast');
+      el.textContent='Đã sao chép: '+t;
+      el.classList.add('show');
+      setTimeout(function(){el.classList.remove('show')},1600);
+    });
+  }
+</script>
+</body>
+</html>
