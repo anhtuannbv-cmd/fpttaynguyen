@@ -3,251 +3,331 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FPT Tây Nguyên</title>
-<meta name="description" content="FPT Tây Nguyên - Internet cáp quang & dịch vụ. Thanh toán nhanh bằng mã VietQR.">
+<title>FPT Telecom Tây Nguyên | Lắp Mạng FPT - Hotline 0988.678.194</title>
+<meta name="description" content="Lắp mạng FPT tại Tây Nguyên. Hotline: 0988.678.194. Tư vấn báo giá lắp mạng FPT, truyền hình, camera, SmartHome. Gọi là có, không ngại xa.">
 <style>
   :root{
     --fpt-orange:#f37021;
     --fpt-blue:#0a3d91;
-    --fpt-green:#00a651;
-    --bg:#f5f7fb;
+    --fpt-green:#0aa64b;
+    --bg:#f4f6fb;
     --ink:#1a2230;
     --muted:#5b6472;
     --card:#ffffff;
     --line:#e6eaf1;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
-    background:var(--bg);color:var(--ink);line-height:1.6;
-  }
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
   a{color:inherit;text-decoration:none}
-  .wrap{max-width:960px;margin:0 auto;padding:0 20px}
+  img{max-width:100%}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
 
-  header{
-    background:linear-gradient(135deg,var(--fpt-blue),#1256c4);
-    color:#fff;padding:14px 0;position:sticky;top:0;z-index:10;
-    box-shadow:0 2px 14px rgba(10,61,145,.25);
-  }
-  .nav{display:flex;align-items:center;justify-content:space-between}
-  .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px}
-  .logo{
-    width:38px;height:38px;border-radius:9px;
-    background:var(--fpt-orange);display:grid;place-items:center;
-    font-weight:900;color:#fff;font-size:16px;letter-spacing:-1px;
-  }
-  .brand small{display:block;font-weight:500;font-size:11px;opacity:.85;letter-spacing:2px}
-  .nav .cta{
-    background:var(--fpt-orange);padding:9px 18px;border-radius:30px;
-    font-weight:700;font-size:14px;
-  }
+  .topbar{background:#06285f;color:#dbe6ff;font-size:13px}
+  .topbar .wrap{display:flex;justify-content:space-between;align-items:center;padding:7px 20px;flex-wrap:wrap;gap:8px}
+  .topbar a{font-weight:700;color:#ffd9c2}
 
-  .hero{padding:56px 0 40px;text-align:center}
-  .hero h1{font-size:38px;line-height:1.2;font-weight:900;color:var(--fpt-blue)}
-  .hero h1 span{color:var(--fpt-orange)}
-  .hero p{max-width:600px;margin:16px auto 0;color:var(--muted);font-size:17px}
-  .badges{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:26px}
-  .badge{
-    background:#fff;border:1px solid var(--line);border-radius:12px;
-    padding:14px 18px;min-width:150px;text-align:left;
-    box-shadow:0 4px 14px rgba(20,40,80,.05);
-  }
-  .badge b{display:block;font-size:22px;color:var(--fpt-blue)}
-  .badge small{color:var(--muted)}
+  header{background:linear-gradient(135deg,var(--fpt-blue),#1256c4);color:#fff;position:sticky;top:0;z-index:20;box-shadow:0 2px 14px rgba(10,61,145,.25)}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+  .brand{display:flex;align-items:center;gap:11px;font-weight:900;font-size:20px}
+  .logo{width:42px;height:42px;border-radius:10px;background:var(--fpt-orange);display:grid;place-items:center;font-weight:900;color:#fff;font-size:15px;letter-spacing:-1px}
+  .brand small{display:block;font-weight:500;font-size:10px;opacity:.85;letter-spacing:2px}
+  .menu{display:flex;gap:18px;font-size:14px;font-weight:600;flex-wrap:wrap}
+  .menu a:hover{color:#ffd9c2}
+  .hot{background:var(--fpt-orange);padding:9px 16px;border-radius:30px;font-weight:800;font-size:15px;white-space:nowrap}
 
-  .pay{padding:20px 0 60px}
-  .pay-card{
-    background:var(--card);border-radius:22px;overflow:hidden;
-    box-shadow:0 18px 50px rgba(20,40,80,.12);
-    display:grid;grid-template-columns:1.1fr 1fr;
-  }
-  .pay-info{padding:38px 34px;background:linear-gradient(160deg,#fff, #fff7f1)}
-  .pay-info .kicker{
-    display:inline-block;background:#fff0e6;color:var(--fpt-orange);
-    font-weight:800;font-size:12px;letter-spacing:1px;
-    padding:6px 12px;border-radius:20px;text-transform:uppercase;
-  }
-  .pay-info h2{font-size:26px;margin:14px 0 6px;color:var(--ink)}
-  .amount{font-size:40px;font-weight:900;color:var(--fpt-green);margin:6px 0}
-  .rows{margin-top:18px;border-top:1px dashed var(--line);padding-top:16px}
-  .row{display:flex;justify-content:space-between;gap:16px;padding:7px 0;font-size:15px}
-  .row .k{color:var(--muted)}
-  .row .v{font-weight:700;text-align:right}
-  .copy{
-    cursor:pointer;border:none;background:#eef3ff;color:var(--fpt-blue);
-    font-weight:700;font-size:12px;border-radius:8px;padding:3px 9px;margin-left:8px;
-  }
-  .copy:active{transform:scale(.96)}
+  .hero{background:linear-gradient(160deg,#0a3d91,#0090d4);color:#fff;padding:56px 0 48px;text-align:center}
+  .hero h1{font-size:38px;line-height:1.15;font-weight:900}
+  .hero h1 span{color:#ffcf33}
+  .hero p{max-width:680px;margin:16px auto 0;font-size:17px;opacity:.95}
+  .cta-row{display:flex;gap:14px;justify-content:center;margin-top:26px;flex-wrap:wrap}
+  .btn{padding:13px 26px;border-radius:30px;font-weight:800;font-size:16px;display:inline-block}
+  .btn-orange{background:var(--fpt-orange);color:#fff;box-shadow:0 8px 22px rgba(243,112,33,.4)}
+  .btn-ghost{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.5)}
 
-  .qr-side{
-    padding:38px 30px;display:flex;flex-direction:column;align-items:center;
-    justify-content:center;text-align:center;background:#fbfcff;
-    border-left:1px solid var(--line);
-  }
-  .qr-box{
-    background:#fff;border:1px solid var(--line);border-radius:18px;
-    padding:16px;box-shadow:0 8px 24px rgba(20,40,80,.08);
-  }
-  .qr-box img{width:250px;height:250px;display:block;border-radius:8px}
-  .qr-side .hint{margin-top:14px;color:var(--muted);font-size:14px;max-width:250px}
-  .qr-logos{display:flex;gap:10px;align-items:center;justify-content:center;margin-top:14px;flex-wrap:wrap}
-  .qr-logos span{
-    font-size:11px;font-weight:700;color:#8892a4;border:1px solid var(--line);
-    border-radius:6px;padding:4px 8px;background:#fff;
-  }
-  .toast{
-    position:fixed;left:50%;bottom:30px;transform:translateX(-50%) translateY(20px);
-    background:var(--ink);color:#fff;padding:11px 20px;border-radius:30px;
-    font-size:14px;font-weight:600;opacity:0;pointer-events:none;transition:.25s;
-    z-index:50;
-  }
-  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  .notice{background:#fff7ec;border:1px solid #ffd9a8;color:#8a4b00;border-radius:12px;padding:14px 18px;margin:26px auto;text-align:center;font-weight:600;max-width:820px}
+  .notice a{color:var(--fpt-orange);font-weight:800}
 
-  .services{padding:20px 0 60px}
-  .services h3{text-align:center;font-size:26px;color:var(--fpt-blue);margin-bottom:8px}
-  .services .sub{text-align:center;color:var(--muted);margin-bottom:30px}
-  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .svc{
-    background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;
-    box-shadow:0 6px 18px rgba(20,40,80,.05);
-  }
-  .svc .ic{font-size:28px}
-  .svc h4{margin:12px 0 6px;color:var(--ink)}
-  .svc p{color:var(--muted);font-size:14px}
+  section{padding:46px 0}
+  .sec-title{text-align:center;font-size:30px;font-weight:900;color:var(--fpt-blue);margin-bottom:6px}
+  .sec-sub{text-align:center;color:var(--muted);margin-bottom:30px;max-width:640px;margin-left:auto;margin-right:auto}
 
-  footer{background:var(--fpt-blue);color:#dbe6ff;padding:34px 0;text-align:center;font-size:14px}
+  .tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:26px}
+  .tab{padding:11px 22px;border-radius:30px;background:#fff;border:1px solid var(--line);font-weight:700;cursor:pointer;font-size:14px}
+  .tab.active{background:var(--fpt-blue);color:#fff;border-color:var(--fpt-blue)}
+  .panel{display:none}
+  .panel.active{display:block}
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .plan{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 22px;text-align:center;box-shadow:0 8px 24px rgba(20,40,80,.06);position:relative;transition:.2s}
+  .plan:hover{transform:translateY(-4px);box-shadow:0 14px 34px rgba(20,40,80,.12)}
+  .plan.hot-plan{border:2px solid var(--fpt-orange)}
+  .plan .tag{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--fpt-orange);color:#fff;font-size:11px;font-weight:800;padding:4px 12px;border-radius:20px}
+  .plan h3{font-size:22px;color:var(--fpt-blue);font-weight:900}
+  .plan .speed{color:var(--muted);margin:6px 0 12px;font-weight:600}
+  .plan .price{font-size:30px;font-weight:900;color:var(--fpt-green)}
+  .plan .price small{font-size:14px;color:var(--muted);font-weight:600}
+  .plan a.reg{display:inline-block;margin-top:16px;background:var(--fpt-orange);color:#fff;padding:10px 24px;border-radius:24px;font-weight:800}
+
+  .steps{background:#fff}
+  .step-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:10px}
+  .step{background:var(--bg);border-radius:14px;padding:22px 16px;text-align:center}
+  .step .n{width:42px;height:42px;border-radius:50%;background:var(--fpt-blue);color:#fff;display:grid;place-items:center;margin:0 auto 12px;font-weight:900;font-size:18px}
+  .step p{font-size:14px;color:var(--muted)}
+
+  .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .svc{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px;box-shadow:0 6px 18px rgba(20,40,80,.05)}
+  .svc .ic{font-size:34px}
+  .svc h4{margin:12px 0 6px;color:var(--fpt-blue);font-size:19px}
+  .svc p{color:var(--muted);font-size:14.5px}
+  .svc a{display:inline-block;margin-top:12px;color:var(--fpt-orange);font-weight:800;font-size:14px}
+
+  .cam-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:820px;margin:0 auto}
+  .cam{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px;text-align:center;box-shadow:0 6px 18px rgba(20,40,80,.05)}
+  .cam .ic{font-size:40px}
+  .cam h4{color:var(--fpt-blue);margin:10px 0}
+  .cam p{color:var(--muted);font-size:14px;min-height:66px}
+  .cam .old{color:#aaa;text-decoration:line-through;font-size:15px}
+  .cam .new{color:var(--fpt-green);font-weight:900;font-size:22px;margin-left:6px}
+  .cam .vat{font-size:12px;color:var(--muted)}
+
+  .reg{background:linear-gradient(160deg,#0a3d91,#0090d4);color:#fff}
+  .reg .sec-title,.reg .sec-sub{color:#fff}
+  .form-card{background:#fff;border-radius:18px;padding:28px;max-width:560px;margin:0 auto;box-shadow:0 18px 50px rgba(0,0,0,.25)}
+  .form-card label{display:block;text-align:left;color:var(--ink);font-weight:700;font-size:14px;margin:12px 0 5px}
+  .form-card input,.form-card select{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-size:15px}
+  .form-card button{width:100%;margin-top:20px;background:var(--fpt-orange);color:#fff;border:none;padding:14px;border-radius:10px;font-weight:900;font-size:16px;cursor:pointer}
+  .form-card .note{color:var(--muted);font-size:13px;margin-top:12px;text-align:center}
+
+  .company{background:#06285f;color:#cdd9f0}
+  .company h3{color:#fff;font-size:22px;font-weight:900;text-align:center}
+  .company .rep{text-align:center;color:#ffd9c2;font-weight:700;margin:6px 0 24px}
+  .branches{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .branch{background:rgba(255,255,255,.06);border-radius:12px;padding:16px}
+  .branch b{color:#fff;display:block;margin-bottom:2px}
+  .branch span{font-size:13.5px}
+
+  footer{background:#04193b;color:#9fb0d0;text-align:center;padding:26px 0;font-size:14px}
   footer b{color:#fff}
-  footer .row2{margin-top:8px;opacity:.8}
 
-  @media(max-width:760px){
-    .pay-card{grid-template-columns:1fr}
-    .qr-side{border-left:none;border-top:1px solid var(--line)}
+  .float{position:fixed;right:16px;bottom:20px;z-index:40;display:flex;flex-direction:column;gap:10px}
+  .float a{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;font-size:12px;box-shadow:0 6px 18px rgba(0,0,0,.25);text-align:center;line-height:1.1}
+  .float .ph{background:var(--fpt-green);animation:pulse 1.6s infinite}
+  .float .zl{background:#0068ff}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(10,166,75,.6)}70%{box-shadow:0 0 0 16px rgba(10,166,75,0)}100%{box-shadow:0 0 0 0 rgba(10,166,75,0)}}
+
+  @media(max-width:860px){
+    .menu{display:none}
+    .plans,.svc-grid,.branches{grid-template-columns:1fr}
+    .step-grid{grid-template-columns:1fr 1fr}
+    .cam-grid{grid-template-columns:1fr}
     .hero h1{font-size:30px}
-    .grid{grid-template-columns:1fr}
-    .nav .cta{display:none}
   }
 </style>
 </head>
 <body>
 
+<div class="topbar">
+  <div class="wrap">
+    <span>🚚 Lắp đặt miễn phí – Gọi là có, không ngại xa!</span>
+    <span>Hotline: <a href="tel:0988678194">0988.678.194</a></span>
+  </div>
+</div>
+
 <header>
   <div class="wrap nav">
     <div class="brand">
       <div class="logo">FPT</div>
-      <div>FPT Tây Nguyên<small>INTERNET &amp; DỊCH VỤ</small></div>
+      <div>FPT Telecom Tây Nguyên<small>WEBSITE CHÍNH THỨC</small></div>
     </div>
-    <a href="#thanhtoan" class="cta">Thanh toán</a>
+    <nav class="menu">
+      <a href="#internet">Internet FPT</a>
+      <a href="#services">FPT Play</a>
+      <a href="#camera">FPT Camera</a>
+      <a href="#services">SmartHome</a>
+      <a href="#services">Oncall</a>
+      <a href="#dangky">Liên hệ</a>
+    </nav>
+    <a href="tel:0988678194" class="hot">📞 0988.678.194</a>
   </div>
 </header>
 
 <section class="hero">
   <div class="wrap">
-    <h1>Internet cáp quang <span>FPT</span> tại Tây Nguyên</h1>
-    <p>Kết nối tốc độ cao, ổn định cho gia đình và doanh nghiệp. Thanh toán nhanh chỉ với một lần quét mã VietQR.</p>
-    <div class="badges">
-      <div class="badge"><b>99.9%</b><small>Ổn định đường truyền</small></div>
-      <div class="badge"><b>24/7</b><small>Hỗ trợ kỹ thuật</small></div>
-      <div class="badge"><b>Miễn phí</b><small>Lắp đặt tận nơi</small></div>
+    <h1>Lắp Mạng <span>FPT</span> tại Tây Nguyên</h1>
+    <p>Internet cáp quang WiFi 6, Truyền hình FPT Play, Camera AI, Nhà thông minh SmartHome. Tư vấn – báo giá – lắp đặt nhanh trong 48h.</p>
+    <div class="cta-row">
+      <a href="tel:0988678194" class="btn btn-orange">Gọi ngay 0988.678.194</a>
+      <a href="#dangky" class="btn btn-ghost">Đăng ký tư vấn</a>
+    </div>
+    <div class="notice">
+      Bảo trì, sửa mạng, khiếu nại vui lòng gọi tổng đài FPT
+      <a href="tel:19006600">1900 6600</a> (bấm nhánh 2)
     </div>
   </div>
 </section>
 
-<section class="pay" id="thanhtoan">
+<section id="internet">
   <div class="wrap">
-    <div class="pay-card">
-      <div class="pay-info">
-        <span class="kicker">Thanh toán VietQR</span>
-        <h2>Quét mã để thanh toán</h2>
-        <div class="amount">68.000 ₫</div>
-        <p style="color:var(--muted);font-size:14px">Nội dung: <b>tặng 1 cốc bia</b> 🍺</p>
+    <h2 class="sec-title">Bảng Giá Gói Cước FPT</h2>
+    <p class="sec-sub">Chọn gói phù hợp với nhu cầu của gia đình và doanh nghiệp bạn</p>
 
-        <div class="rows">
-          <div class="row">
-            <span class="k">Ngân hàng</span>
-            <span class="v">Agribank</span>
-          </div>
-          <div class="row">
-            <span class="k">Chủ tài khoản</span>
-            <span class="v">NGUYEN VAN TUAN</span>
-          </div>
-          <div class="row">
-            <span class="k">Số tài khoản</span>
-            <span class="v">5012236012568
-              <button class="copy" onclick="copyText('5012236012568')">Sao chép</button>
-            </span>
-          </div>
-          <div class="row">
-            <span class="k">Số tiền</span>
-            <span class="v">68.000 ₫
-              <button class="copy" onclick="copyText('68000')">Sao chép</button>
-            </span>
-          </div>
-          <div class="row">
-            <span class="k">Nội dung</span>
-            <span class="v">tang 1 coc bia
-              <button class="copy" onclick="copyText('tang 1 coc bia')">Sao chép</button>
-            </span>
-          </div>
-        </div>
+    <div class="tabs">
+      <div class="tab active" data-p="p1">Internet lẻ</div>
+      <div class="tab" data-p="p2">Internet + Truyền hình</div>
+      <div class="tab" data-p="p3">Doanh nghiệp</div>
+      <div class="tab" data-p="p4">Lux WiFi 6</div>
+    </div>
+
+    <div class="panel active" id="p1">
+      <div class="plans">
+        <div class="plan"><h3>Giga</h3><div class="speed">300 Mbps</div><div class="price">195.000<small>đ/tháng</small></div><a href="#dangky" class="reg">Đăng ký</a></div>
+        <div class="plan hot-plan"><span class="tag">PHỔ BIẾN</span><h3>Sky</h3><div class="speed">1000 Mbps</div><div class="price">230.000<small>đ/tháng</small></div><a href="#dangky" class="reg">Đăng ký</a></div>
+        <div class="plan"><h3>Meta</h3><div class="speed">1024 Mbps+</div><div class="price">330.000<small>đ/tháng</small></div><a href="#dangky" class="reg">Đăng ký</a></div>
       </div>
+    </div>
 
-      <div class="qr-side">
-        <div class="qr-box">
-          <img
-            src="https://img.vietqr.io/image/970405-5012236012568-compact2.png?amount=68000&addInfo=tang%201%20coc%20bia&accountName=NGUYEN%20VAN%20TUAN"
-            alt="Mã VietQR thanh toán 68.000đ - Agribank NGUYEN VAN TUAN"
-            loading="lazy">
-        </div>
-        <div class="hint">Mở app ngân hàng bất kỳ → quét mã QR → số tiền và nội dung tự điền sẵn.</div>
-        <div class="qr-logos">
-          <span>VietQR</span><span>napas 24/7</span><span>Agribank</span>
-        </div>
+    <div class="panel" id="p2">
+      <div class="plans">
+        <div class="plan"><h3>Giga</h3><div class="speed">300 Mbps</div><div class="price">210.000<small>đ/tháng</small></div><a href="#dangky" class="reg">Đăng ký</a></div>
+        <div class="plan hot-plan"><span class="tag">PHỔ BIẾN</span><h3>Sky</h3><div class="speed">1000 Mbps</div><div class="price">240.000<small>đ/tháng</small></div><a href="#dangky" class="reg">Đăng ký</a></div>
+        <div class="plan"><h3>Meta</h3><div class="speed">1024 Mbps+</div><div class="price">380.000<small>đ/tháng</small></div><a href="#dangky" class="reg">Đăng ký</a></div>
+      </div>
+    </div>
+
+    <div class="panel" id="p3">
+      <div class="plans">
+        <div class="plan"><h3>Super 300</h3><div class="speed">300 Mbps</div><div class="price">450.000<small>đ/tháng</small></div><a href="#dangky" class="reg">Đăng ký</a></div>
+        <div class="plan"><h3>Super 500</h3><div class="speed">500 Mbps</div><div class="price">1.400.000<small>đ/tháng</small></div><a href="#dangky" class="reg">Đăng ký</a></div>
+        <div class="plan"><h3>Super 800</h3><div class="speed">800 Mbps</div><div class="price">3.400.000<small>đ/tháng</small></div><a href="#dangky" class="reg">Đăng ký</a></div>
+      </div>
+    </div>
+
+    <div class="panel" id="p4">
+      <div class="plans">
+        <div class="plan"><h3>Lux 500</h3><div class="speed">500 Mbps</div><div class="price">800.000<small>đ/tháng</small></div><a href="#dangky" class="reg">Đăng ký</a></div>
+        <div class="plan hot-plan"><span class="tag">WIFI 6</span><h3>Lux 800</h3><div class="speed">800 Mbps</div><div class="price">1.000.000<small>đ/tháng</small></div><a href="#dangky" class="reg">Đăng ký</a></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="services">
+<section class="steps">
   <div class="wrap">
-    <h3>Dịch vụ của chúng tôi</h3>
-    <div class="sub">Giải pháp kết nối toàn diện cho khu vực Tây Nguyên</div>
-    <div class="grid">
-      <div class="svc">
-        <div class="ic">🌐</div>
-        <h4>Internet cáp quang</h4>
-        <p>Các gói cước tốc độ từ 100Mbps đến 1Gbps, phù hợp mọi nhu cầu sử dụng.</p>
+    <h2 class="sec-title">Quy Trình Lắp Đặt</h2>
+    <p class="sec-sub">Để lại thông tin, chúng tôi gọi lại tư vấn – đỡ tốn tiền điện thoại cho quý khách</p>
+    <div class="step-grid">
+      <div class="step"><div class="n">1</div><p>Điền thông tin cá nhân và gửi đi</p></div>
+      <div class="step"><div class="n">2</div><p>Nhân viên FPT gọi lại tư vấn</p></div>
+      <div class="step"><div class="n">3</div><p>Ghé nhà ký hợp đồng, thu tiền</p></div>
+      <div class="step"><div class="n">4</div><p>Tổng đài kiểm tra thông tin hợp đồng</p></div>
+      <div class="step"><div class="n">5</div><p>Kỹ thuật thi công lắp đặt trong 48h</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <h2 class="sec-title">Dịch Vụ FPT Telecom</h2>
+    <p class="sec-sub">Giải pháp số toàn diện cho ngôi nhà và doanh nghiệp của bạn</p>
+    <div class="svc-grid">
+      <div class="svc"><div class="ic">🌐</div><h4>Internet FPT – WiFi 6</h4><p>Cáp quang tốc độ cao, thiết bị WiFi 6 chuyên dụng cho nhà hàng, khách sạn, quán café.</p><a href="#internet">Tìm hiểu thêm →</a></div>
+      <div class="svc"><div class="ic">📺</div><h4>FPT Play</h4><p>Box Android FPT Play mới nhất, hàng chính hãng, giá tốt – kho phim và thể thao phong phú.</p><a href="#dangky">Tìm hiểu thêm →</a></div>
+      <div class="svc"><div class="ic">🎮</div><h4>Gói Lux</h4><p>Tiên phong công nghệ WiFi 6, ping thấp cho game thủ, ổn định kể cả khi đứt cáp quang biển.</p><a href="#internet">Tìm hiểu thêm →</a></div>
+      <div class="svc"><div class="ic">🏠</div><h4>FPT SmartHome</h4><p>Nhà thông minh trọn gói, quản lý tập trung, hướng đến cuộc sống tiện lợi và an toàn hơn.</p><a href="#dangky">Tìm hiểu thêm →</a></div>
+      <div class="svc"><div class="ic">📹</div><h4>FPT Camera AI</h4><p>Camera AI lưu trữ đám mây iCloud mã hóa bảo mật, bảo trì trọn đời không mất phí.</p><a href="#camera">Tìm hiểu thêm →</a></div>
+      <div class="svc"><div class="ic">☎️</div><h4>Tổng đài Oncall</h4><p>Tổng đài điện thoại bàn cho doanh nghiệp, đầu số đẹp, trọn bộ giải pháp chuyên nghiệp.</p><a href="#dangky">Tìm hiểu thêm →</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="camera">
+  <div class="wrap">
+    <h2 class="sec-title">Camera FPT</h2>
+    <p class="sec-sub">Hình ảnh sắc nét, bảo mật tuyệt đối, lắp đặt bởi đội ngũ kỹ thuật FPT Tây Nguyên</p>
+    <div class="cam-grid">
+      <div class="cam">
+        <div class="ic">📷</div>
+        <h4>Camera ngoài trời</h4>
+        <p>Full 1080p, kháng nước IP66, hồng ngoại 20m, có màu trong điều kiện ánh sáng yếu, góc quan sát 106°.</p>
+        <div><span class="old">1.400.000đ</span><span class="new">1.300.000đ</span></div>
+        <div class="vat">* Giá đã bao gồm VAT</div>
       </div>
-      <div class="svc">
-        <div class="ic">📺</div>
-        <h4>Truyền hình FPT</h4>
-        <p>Hàng trăm kênh HD, kho phim và giải trí phong phú kèm đầu thu 4K.</p>
+      <div class="cam">
+        <div class="ic">🎥</div>
+        <h4>Camera trong nhà</h4>
+        <p>Full 1080p, kết nối RJ45 và PoE, cảm biến Sony, hồng ngoại 10m, góc quan sát rộng 102°.</p>
+        <div><span class="old">1.300.000đ</span><span class="new">1.200.000đ</span></div>
+        <div class="vat">* Giá đã bao gồm VAT</div>
       </div>
-      <div class="svc">
-        <div class="ic">🛡️</div>
-        <h4>Camera &amp; an ninh</h4>
-        <p>Lắp đặt và giám sát camera cloud, bảo vệ nhà và cửa hàng 24/7.</p>
-      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reg" id="dangky">
+  <div class="wrap">
+    <h2 class="sec-title">Đăng Ký Trực Tuyến</h2>
+    <p class="sec-sub">Vui lòng điền thông tin, chúng tôi sẽ liên hệ lại ngay!</p>
+    <form class="form-card" onsubmit="return submitForm(event)">
+      <label>Họ và tên</label>
+      <input type="text" id="fname" placeholder="Nguyễn Văn A" required>
+      <label>Số điện thoại</label>
+      <input type="tel" id="fphone" placeholder="09xx xxx xxx" required>
+      <label>Địa chỉ lắp đặt</label>
+      <input type="text" id="faddr" placeholder="Số nhà, đường, phường/xã">
+      <label>Gói cước quan tâm</label>
+      <select id="fplan">
+        <option>Internet lẻ (Giga / Sky / Meta)</option>
+        <option>Internet + Truyền hình</option>
+        <option>Gói doanh nghiệp</option>
+        <option>Lux WiFi 6</option>
+        <option>Camera / SmartHome</option>
+      </select>
+      <button type="submit">GỬI ĐĂNG KÝ</button>
+      <div class="note">Hoặc gọi trực tiếp hotline <a href="tel:0988678194"><b>0988.678.194</b></a> để được tư vấn nhanh nhất.</div>
+    </form>
+  </div>
+</section>
+
+<section class="company">
+  <div class="wrap">
+    <h3>Công Ty Cổ Phần Viễn Thông FPT – Chi Nhánh Tây Nguyên</h3>
+    <div class="rep">Hotline tư vấn &amp; lắp đặt: 0988.678.194</div>
+    <div class="branches">
+      <div class="branch"><b>FPT Pleiku</b><span>TP. Pleiku, Gia Lai</span></div>
+      <div class="branch"><b>FPT Buôn Ma Thuột</b><span>TP. Buôn Ma Thuột, Đắk Lắk</span></div>
+      <div class="branch"><b>FPT Kon Tum</b><span>TP. Kon Tum, Kon Tum</span></div>
+      <div class="branch"><b>FPT Gia Nghĩa</b><span>TP. Gia Nghĩa, Đắk Nông</span></div>
+      <div class="branch"><b>FPT Đà Lạt</b><span>TP. Đà Lạt, Lâm Đồng</span></div>
+      <div class="branch"><b>FPT Bảo Lộc</b><span>TP. Bảo Lộc, Lâm Đồng</span></div>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <b>FPT Tây Nguyên</b> — Internet &amp; Dịch vụ số<br>
-    <div class="row2">Hotline hỗ trợ · fpttaynguyen.com · © 2026</div>
+    <b>FPT Telecom Tây Nguyên</b> — Internet · Truyền hình · Camera · SmartHome<br>
+    Hotline: <a href="tel:0988678194" style="color:#ffd9c2;font-weight:700">0988.678.194</a> · fpttaynguyen.com · © 2026
   </div>
 </footer>
 
-<div class="toast" id="toast">Đã sao chép!</div>
+<div class="float">
+  <a class="ph" href="tel:0988678194">Gọi</a>
+  <a class="zl" href="https://zalo.me/0988678194" target="_blank" rel="noopener">Zalo</a>
+</div>
 
 <script>
-  function copyText(t){
-    navigator.clipboard.writeText(t).then(function(){
-      var el=document.getElementById('toast');
-      el.textContent='Đã sao chép: '+t;
-      el.classList.add('show');
-      setTimeout(function(){el.classList.remove('show')},1600);
+  document.querySelectorAll('.tab').forEach(function(t){
+    t.addEventListener('click',function(){
+      document.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active')});
+      document.querySelectorAll('.panel').forEach(function(x){x.classList.remove('active')});
+      t.classList.add('active');
+      document.getElementById(t.dataset.p).classList.add('active');
     });
+  });
+  function submitForm(e){
+    e.preventDefault();
+    var name=document.getElementById('fname').value;
+    alert('Cảm ơn '+name+'! Yêu cầu đã được ghi nhận. FPT Tây Nguyên sẽ gọi lại cho bạn sớm nhất. Hotline: 0988.678.194');
+    return false;
   }
 </script>
 </body>
