@@ -323,10 +323,26 @@
       document.getElementById(t.dataset.p).classList.add('active');
     });
   });
+  // Dán URL Web App của Google Apps Script vào đây (xem excel/HUONG-DAN.md)
+  var SHEET_URL='';
   function submitForm(e){
     e.preventDefault();
-    var name=document.getElementById('fname').value;
-    alert('Cảm ơn '+name+'! Yêu cầu đã được ghi nhận. FPT Tây Nguyên sẽ gọi lại cho bạn sớm nhất. Hotline: 0988.678.194');
+    var f=e.target, btn=f.querySelector('button'), name=document.getElementById('fname').value;
+    var data=new URLSearchParams({
+      name:name,
+      phone:document.getElementById('fphone').value,
+      address:document.getElementById('faddr').value,
+      plan:document.getElementById('fplan').value
+    });
+    var done=function(){
+      alert('Cảm ơn '+name+'! Yêu cầu đã được ghi nhận. FPT Tây Nguyên sẽ gọi lại cho bạn sớm nhất. Hotline: 0988.678.194');
+      f.reset(); btn.disabled=false;
+    };
+    if(!SHEET_URL){done();return false;}
+    btn.disabled=true;
+    fetch(SHEET_URL,{method:'POST',mode:'no-cors',body:data}).then(done).catch(function(){
+      alert('Gửi chưa được, vui lòng gọi hotline 0988.678.194 để được hỗ trợ.'); btn.disabled=false;
+    });
     return false;
   }
 </script>
